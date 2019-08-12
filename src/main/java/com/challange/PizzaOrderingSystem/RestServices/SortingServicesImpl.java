@@ -22,8 +22,7 @@ public class SortingServicesImpl implements SortingServices{
 
     @Override
     public void sortPizzaOrders() throws Exception {
-        List<PizzaOrderVO> pizzaOrders = fileServices.readData(filePath);
-        pizzaOrders = fileServices.sortData(pizzaOrders);
+        List<PizzaOrderVO> pizzaOrders = fileServices.readDataAndSort(filePath);
         fileServices.writeData(pizzaOrders);
     }
 }
