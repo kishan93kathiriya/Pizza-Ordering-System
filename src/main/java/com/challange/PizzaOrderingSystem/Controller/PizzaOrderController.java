@@ -15,13 +15,10 @@ public class PizzaOrderController {
     }
 
     @RequestMapping("/sortPizzaOrders")
-    public String sortingPizzaOrders(){
-        try {
+    public String sortingPizzaOrders() throws Exception {
             sortingServices.sortPizzaOrders();
-        } catch (Exception ex) {
-            return "<html><body><div style=\"color:red; text-align: center; font-family: Sans-serif; font-size: 40px;\"><h1>"+ex.getMessage().toString()+"</h1></div></body></html>";
-        }
-        return "<html>"+
+
+            return "<html>"+
                 "<body>"+
                 "<div style=\"color:green; text-align: center;font-family: Sans-serif; font-size: 50px;\""+
                 "<h1>"+
