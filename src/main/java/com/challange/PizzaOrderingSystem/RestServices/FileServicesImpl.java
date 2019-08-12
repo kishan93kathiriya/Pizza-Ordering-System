@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
 public class FileServicesImpl implements FileServices{
 
     @Override
-    public List<PizzaOrderVO> readData(String filePath) throws Exception {
+    public List<PizzaOrderVO> readDataAndSort(String filePath) throws Exception {
         List<PizzaOrderVO> pizzaOrders = new ArrayList<PizzaOrderVO>();
         String input="";
 
@@ -32,6 +31,9 @@ public class FileServicesImpl implements FileServices{
         } catch (IOException ex) {
             throw ex;
         }
+
+        pizzaOrders.sort(
+                (PizzaOrderVO o1, PizzaOrderVO o2) -> o1.getDate().compareTo(o2.getDate()));
         return pizzaOrders;
     }
 
@@ -54,9 +56,4 @@ public class FileServicesImpl implements FileServices{
         printWriter.close();
     }
 
-    @Override
-    public List<PizzaOrderVO> sortData(List<PizzaOrderVO> pizzaOrders){
-        Collections.sort(pizzaOrders);
-        return pizzaOrders;
-    }
 }
