@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface FileServices {
 
-    public List<PizzaOrderVO> readData(String filePath) throws Exception;
-    public List<PizzaOrderVO> sortData(List<PizzaOrderVO> pizzaOrders);
+    public List<PizzaOrderVO> readDataAndSort(String filePath) throws Exception;
     public void writeData(List<PizzaOrderVO> pizzaOrders) throws Exception;
 }
