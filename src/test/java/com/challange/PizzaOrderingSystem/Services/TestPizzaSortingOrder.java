@@ -25,7 +25,7 @@ public class TestPizzaSortingOrder {
         List<String> date = new ArrayList<String>();
         name = this.getName();
         date = this.getDate();
-        list = fileServices.readData(filePath);
+        list = fileServices.readDataAndSort(filePath);
         for (int i = 0; i < list.size(); i++) {
             Assert.assertEquals(name.get(i), list.get(i).getName());
             Assert.assertEquals(date.get(i), list.get(i).getDate().toString());
